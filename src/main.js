@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require('electron')
+const { app, BrowserWindow, Notification, ipcMain } = require('electron')
 const path = require('node:path')
 
 const createWindow = () => {
@@ -11,6 +11,9 @@ const createWindow = () => {
   })
 
   win.loadFile(path.join(__dirname,'index.html'))
+  // win.loadURL("http://localhost:5173/")
+  const contents = win.webContents
+  win.setMenuBarVisibility(false)
 }
 
 app.whenReady().then(() => {

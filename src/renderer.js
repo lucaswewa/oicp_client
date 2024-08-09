@@ -5,6 +5,7 @@ const func = async (n) => {
     console.log('ping')
     const response = await window.versions.ping(n, n+1)
     console.log(response)
+    console.log(window.versions.desktop)
 
 }
 
@@ -12,3 +13,6 @@ const func = async (n) => {
     func(n)
     setTimeout(arguments.callee, 1000, n+1)
 })(1)
+
+new window.Notification('Title', {body: 'Body'})
+    .onclick = () => { console.log('clicked') }
